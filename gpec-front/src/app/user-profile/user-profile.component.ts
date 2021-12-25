@@ -19,8 +19,6 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.user.subscribe((user) => {
       this.user = user
-      console.log('user', this.user)
-      console.log('photo', user.url_photo)
       this.base64ToImage(user.url_photo.data)
 
     })
