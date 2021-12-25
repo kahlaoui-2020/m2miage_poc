@@ -12,6 +12,8 @@ const optionHeader = {
 }
 
 const  user_url = '/api/user/';
+const  user_skills_url = '/api/user-skills/';
+const  user_new_skills_url = '/api/user-skills/skills';
 
 
 
@@ -20,6 +22,7 @@ const  user_url = '/api/user/';
 })
 export class UserService {
 
+
   constructor(private http: HttpClient, private authService: AuthService) { }
 
 
@@ -27,6 +30,15 @@ export class UserService {
     let id_utilisateur = this.authService.Id;
 
     let params = new HttpParams().set('id_utilisateur', id_utilisateur);
-    return this.http.get<User>(environment.apiURL + user_url + id_utilisateur, optionHeader);
+    return this.http.get<User>(environment.apiURL + user_url,{params: params});
+  }
+
+  get userSkills() {
+    let params =  new HttpParams().set('id_utilisateur', this.authService.Id);
+    return this.http.get<any>(environment.apiURL + user_skills_url, {params: params})
+  }
+
+  setSkills(skills: any) {
+    return this.http.post(environment.apiURL + user_new_skills_url,{skills})
   }
 }
