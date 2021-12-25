@@ -1,0 +1,49 @@
+<div>
+<button mat-button>Modifier</button>
+<button mat-button (click)="openDialog()">Ajouter</button>
+<button mat-button>Supprimer</button>
+</div>
+
+<table mat-table [dataSource]="skills" class="mat-elevation-z8">
+
+
+  <!-- Checked Column-->
+  <ng-container matColumnDef="checked">
+    <th mat-header-cell *matHeaderCellDef>Check</th>
+    <td mat-cell *matCellDef="let element">
+      <mat-checkbox (click)="check()"></mat-checkbox>
+      {{element.checked}}
+    </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.name}}
+    </td>
+  </ng-container>
+
+  <!-- Skill Column -->
+  <ng-container matColumnDef="skill">
+    <th mat-header-cell *matHeaderCellDef> Compétence </th>
+    <td mat-cell *matCellDef="let element"> {{element.competence}} </td>
+  </ng-container>
+
+  <!-- Level Column -->
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Niveau d'expérience </th>
+    <td mat-cell *matCellDef="let element"> {{element.desc_niveau}} </td>
+  </ng-container>
+
+  <!-- Years Column -->
+  <ng-container matColumnDef="yearExp">
+    <th mat-header-cell *matHeaderCellDef> Année d'Epérience </th>
+    <td mat-cell *matCellDef="let element"> {{element.nb_experience}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
