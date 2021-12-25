@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import {MatCardModule} from "@angular/material/card";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { LayoutModule } from '@angular/cdk/layout';
@@ -21,6 +21,14 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
+import { ListSkillsComponent } from './list-skills/list-skills.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatTableModule} from "@angular/material/table";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -29,7 +37,9 @@ import { EditSkillsComponent } from './edit-skills/edit-skills.component';
     DashboardComponent,
     SidenavComponent,
     UserProfileComponent,
-    EditSkillsComponent
+    EditSkillsComponent,
+    ListSkillsComponent,
+    DialogSkillsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,14 @@ import { EditSkillsComponent } from './edit-skills/edit-skills.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
