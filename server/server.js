@@ -5,8 +5,11 @@ const cors = require('cors')
 const app = express();
 
 
-const userRoute = require('./src/routes/user.route');
+
 const authRoute = require('./src/routes/auth.route');
+const userRoute = require('./src/routes/user.route');
+const userSkillsRoute = require('./src/routes/user-skills.route');
+const editSkillsRoute = require('./src/routes/edit-skills.route');
 
 app.use(express.static(__dirname))
  .use(bodyParser.urlencoded({extended: true}))
@@ -25,8 +28,11 @@ app.get('/', (req, res) => {
     res.json({ message: 'Welcome to GPEC App' })
 })
 
-app.use('/api/user', userRoute)
-app.use('/api/auth', authRoute)
+app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute);
+app.use('/api/user-skills', userSkillsRoute);
+app.use('/api/edit-skills', editSkillsRoute);
+
 
 
 app.listen(3001, () => {

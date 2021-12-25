@@ -1,8 +1,13 @@
 
-const user = require('../controllers/user.controller.js');
+const user = require('../controllers/user.controller');
 var router = require('express').Router();
 
-router.get('/:id_utilisateur', user.findUser);
 
 
-module.exports = router
+
+router.get('/', user.findUser);
+module.exports = router;
+
+
+
+
