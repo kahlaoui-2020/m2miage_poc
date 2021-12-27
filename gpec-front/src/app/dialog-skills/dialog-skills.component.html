@@ -35,35 +35,12 @@
 
   <!--  Step : Send form-->
   <mat-step>
-    <!-- <form [formArrayName]="formArray" ="formArray" (ngSubmit)="saveSkills()">
-      <div *ngFor="let skill of arrayForm">
-        <mat-label>{{skill.competence}}</mat-label>
-        <mat-divider></mat-divider>
-        <mat-form-field>
-          <mat-label>Niveau d'experience</mat-label>
-          <mat-select formControlName="val_niveau">
-            <mat-option *ngFor="let level of levels" [value]="level.val_niveau">
-              Niveau: {{level.val_niveau}}, Desc: {{level.desc_niveau}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Année d'expérience</mat-label>
-          <input matInput type="number" min="0" >
-        </mat-form-field>
-      </div>
+    <form [formGroup]="formGroup"
+          (ngSubmit)="submitForm(formGroup.value)">
 
-      <div>
-        <button mat-button   matStepperPrevious>Précédent</button>
-        <button mat-button   matDialogClose>Annuler</button>
-        <button mat-button   matStepperNext type="submit">Enregistrer</button>
-      </div>
-
-    </form> -->
-
-    <form [formGroup]="formGroup" (ngSubmit)="submitForm(formGroup.value)">
-
-      <div formArrayName="skills" *ngFor="let skill of formData.controls; let i = index">
+      <div formArrayName="skills"
+           *ngFor="let skill of formData.controls;
+           let i = index">
         <div [formGroupName]="i">
          <mat-label>{{skill.value.competence}}</mat-label>
           <mat-divider></mat-divider>
@@ -77,7 +54,8 @@
           </mat-form-field>
           <mat-form-field>
             <mat-label>Année d'expérience</mat-label>
-            <input matInput type="number" min="0" formControlName="nb_experience">
+            <input matInput type="number" min="0"
+                   formControlName="nb_experience">
           </mat-form-field>
         </div>
 

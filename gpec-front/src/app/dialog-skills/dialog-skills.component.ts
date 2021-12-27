@@ -4,6 +4,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatListOption} from "@angular/material/list";
 import {UserService} from "../services/user.service";
 import {AuthService} from "../services/auth.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-dialog-skills',
@@ -17,7 +18,6 @@ export class DialogSkillsComponent implements OnInit {
   selectedCategorieCtr =  new FormControl('');
   selectedLevelCtr =  new FormControl();
 
-  skillsForm!: FormArray;
   formGroup!: FormGroup;
 
 
@@ -28,7 +28,8 @@ export class DialogSkillsComponent implements OnInit {
 
 
 
-  constructor(private editSkillsService: EditSkillsService,
+  constructor(private dialogRef: MatDialogRef<DialogSkillsComponent>,
+              private editSkillsService: EditSkillsService,
               private userService: UserService,
               private authService: AuthService,
               private formBuilder: FormBuilder) { }
@@ -80,7 +81,6 @@ export class DialogSkillsComponent implements OnInit {
           nb_experience: 0
         })
       )
-      console.log(skill)
     })
     return  lists
 
@@ -90,14 +90,9 @@ export class DialogSkillsComponent implements OnInit {
   }
 
   submitForm(data: any) {
-    console.log(data);
-    this.userService.setSkills(data).subscribe(data => {
-      console.log(data)
-    })
-  }
-
-  saveSkills() {
-    console.log(this.formGroup)
+    this.userService.setSkills(data).subscribe((result: any) => {
+      this.dialogRef.close({error: result.error, data: data.skills})
+    });
   }
 
   selectedLevels(e: any) {
@@ -105,9 +100,6 @@ export class DialogSkillsComponent implements OnInit {
 
   }
 
-  schow() {
-    console.log(this.formGroup.value)
-  }
 
 
 }

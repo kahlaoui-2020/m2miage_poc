@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {AuthService} from "./auth.service";
-import {catchError, tap} from "rxjs";
+import {catchError, Observable, tap} from "rxjs";
 
 const optionHeader = {
   headers: new HttpHeaders({
@@ -39,6 +39,18 @@ export class UserService {
   }
 
   setSkills(skills: any) {
-    return this.http.post(environment.apiURL + user_new_skills_url,{skills})
+    return this.http.post(environment.apiURL + user_new_skills_url, skills)
+
   }
+
+  removeSkills(skills: any) {
+    return this.http.delete(environment.apiURL + user_new_skills_url, {body: skills})
+  }
+
+
+  updateSkills(skills: any) {
+    return this.http.put(environment.apiURL + user_new_skills_url, skills)
+
+  }
+
 }
