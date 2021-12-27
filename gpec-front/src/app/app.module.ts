@@ -29,6 +29,10 @@ import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSelectModule} from "@angular/material/select";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UpdateSkillsComponent } from './update-skills/update-skills.component';
+import { ListCertificationsComponent } from './list-certifications/list-certifications.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import {MatSelectModule} from "@angular/material/select";
     UserProfileComponent,
     EditSkillsComponent,
     ListSkillsComponent,
-    DialogSkillsComponent
+    DialogSkillsComponent,
+    UpdateSkillsComponent,
+    ListCertificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatDialogModule,
     MatStepperModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
