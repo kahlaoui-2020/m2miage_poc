@@ -25,13 +25,21 @@ import { ListSkillsComponent } from './list-skills/list-skills.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
+import { AddSkillsComponent } from './dialog/add-skills/add-skills.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { UpdateSkillsComponent } from './update-skills/update-skills.component';
+import { UpdateSkillsComponent } from './dialog/update-skills/update-skills.component';
 import { ListCertificationsComponent } from './list-certifications/list-certifications.component';
+import { AddCertificationComponent } from './dialog/add-certification/add-certification.component';
+import { EditDbStateComponent } from './edit-db-state/edit-db-state.component';
+import { HomeComponent } from './home/home.component';
+import { EditCategoriesComponent } from './edit-db-state/edit-categories/edit-categories.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { EditSkillComponent } from './edit-db-state/edit-skill/edit-skill.component';
+import { EditCertificationComponent } from './edit-db-state/edit-certification/edit-certification.component';
+import { ProfileResumeComponent } from './profile-resume/profile-resume.component';
 
 
 @NgModule({
@@ -43,36 +51,44 @@ import { ListCertificationsComponent } from './list-certifications/list-certific
     UserProfileComponent,
     EditSkillsComponent,
     ListSkillsComponent,
-    DialogSkillsComponent,
+    AddSkillsComponent,
     UpdateSkillsComponent,
-    ListCertificationsComponent
+    ListCertificationsComponent,
+    AddCertificationComponent,
+    EditDbStateComponent,
+    HomeComponent,
+    EditCategoriesComponent,
+    EditSkillComponent,
+    EditCertificationComponent,
+    ProfileResumeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        HttpClientModule,
 
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatTabsModule,
-    MatButtonToggleModule,
-    MatTableModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatStepperModule,
-    MatSelectModule,
-    FormsModule,
-    MatSnackBarModule
-  ],
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatStepperModule,
+        MatSelectModule,
+        FormsModule,
+        MatSnackBarModule,
+        MatGridListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
