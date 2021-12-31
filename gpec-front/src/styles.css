@@ -14,5 +14,8 @@ mat-tab-group.content  div.mat-tab-body-content {
   justify-content: center !important;
   align-items: center !important;
 }
+mat-tab-group.content-home  div.mat-tab-body-content {
+  overflow: hidden;
+}
 
 

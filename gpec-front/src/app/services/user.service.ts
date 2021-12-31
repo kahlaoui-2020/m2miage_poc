@@ -53,4 +53,9 @@ export class UserService {
 
   }
 
+  get userGraph() {
+    let params =  new HttpParams().set('id_utilisateur', this.authService.Id);
+    return this.http.get<any>(environment.apiURL + user_skills_url + 'graph', {params: params})
+  }
+
 }
