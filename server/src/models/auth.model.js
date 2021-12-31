@@ -8,7 +8,7 @@ const Auth = (auth) => {
 
 Auth.auth = (form, result) => {
     let login = form.login, passwd = form.passwd;
-    sql.query(`SELECT id_utilisateur FROM utilisateurs WHERE identifiant = '${login}' and passwd = '${passwd}'`, (err, res) => {
+    sql.query(`SELECT id_utilisateur, profil FROM utilisateurs WHERE identifiant = '${login}' and passwd = '${passwd}'`, (err, res) => {
         if(err) {
             result(err, null);
             return;

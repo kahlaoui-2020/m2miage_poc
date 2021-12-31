@@ -10,7 +10,8 @@ const authRoute = require('./src/routes/auth.route');
 const userRoute = require('./src/routes/user.route');
 const userSkillsRoute = require('./src/routes/user-skills.route');
 const editSkillsRoute = require('./src/routes/edit-skills.route');
-
+const editCertsRoute = require('./src/routes/edit-certs.route');
+const editDBRoute = require('./src/routes/edit-db.route');
 app.use(express.static(__dirname))
  .use(bodyParser.urlencoded({extended: true}))
  .use(bodyParser.json())
@@ -32,6 +33,9 @@ app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
 app.use('/api/user-skills', userSkillsRoute);
 app.use('/api/edit-skills', editSkillsRoute);
+app.use('/api/edit-certs', editCertsRoute);
+app.use('/api/edit-db', editDBRoute);
+
 
 
 

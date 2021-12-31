@@ -5,8 +5,8 @@ exports.getAllSkills = (req, res) => {
     userSkills.findAllSkills(userID, (err, data) => {
         if (err) {
             if (err.message === 'not_found')
-                res.status(404).send({ message: `Not found user with id ${userID}` });
-            else res.status(500).send({ message: `Error retrieving user ` });
+                res.send({ error: true, message: `Not found user with id ${userID}` });
+            else res.send({ error: true, message: `Error retrieving user ` });
 
         } else res.send(data);
     });
@@ -16,8 +16,8 @@ exports.getSkillsByCat = (req, res) => {
     userSkills.findSkillsByCat(userID, categoryID, (err, data) => {
         if (err) {
             if (err.message === 'not_found')
-                res.status(404).send({ message: `Not found user with id ${userID}` });
-            else res.status(500).send({ message: `Error retrieving user with id ${userID}` });
+                res.send({ message: `Not found user with id ${userID}` });
+            else res.send({ message: `Error retrieving user with id ${userID}` });
 
         } else res.send(data);
     });

@@ -26,9 +26,12 @@ export class LoginComponent implements OnInit {
 
   submit(): void {
     this.authService.checkAuth(this.form.value).subscribe((result) => {
+      console.log(result)
       if(result) {
+
         this.authService.Logged = true;
         this.authService.Id = result.id_utilisateur
+        this.authService.Profil = result.profil
         this.route.navigate(['home']);
       }
     })
