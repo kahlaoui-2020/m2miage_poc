@@ -1,0 +1,13 @@
+.container {
+  height: 100%;
+}
+
+#content {
+ background-color: white;
+}
+mat-tab-group, mat-tab {
+  height: 100% !important;
+}
+
+
+

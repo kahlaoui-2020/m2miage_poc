@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-content class="container">
+    <div class="list">
+      <div class="sub-list">
+        <mat-form-field appearance="legacy">
+          <mat-label>Organisme</mat-label>
+          <mat-select [(value)]="selectedOrg" (selectionChange)="getCerts()">
+            <mat-option *ngFor="let item of organismes" [value]="item.organisme">
+              {{item.organisme}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-button (click)="getAllCerts()">All</button>
+      </div>
+
+
+      <span  class="mat-subheader">Liste des compétences</span>
+      <mat-list>
+        <mat-list-item *ngFor="let item of certifications">
+            {{item.titule}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <div class="list">
+      <mat-label class="mat-subheader">Ajouter une nouvelle certification</mat-label>
+      <form [formGroup]="myform" (ngSubmit)="addCertification()">
+        <p>
+          <mat-form-field>
+            <mat-label>Nouvelle certification</mat-label>
+            <input matInput type="text" placeholder="certification" formControlName="titule"/>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Organisme</mat-label>
+            <input matInput type="text" placeholder="Microsoft, Oracle, Cisco, ..." formControlName="organisme"/>
+          </mat-form-field>
+        </p>
+        <button mat-button color="primary" type="submit">Ajouter</button>
+      </form>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

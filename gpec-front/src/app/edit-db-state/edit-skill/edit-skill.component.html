@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-content class="container">
+    <div class="list">
+      <span  class="mat-subheader">Liste des compétences</span>
+      <mat-list>
+        <mat-list-item *ngFor="let item of skills">
+          {{item.competence}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+
+      </mat-list>
+    </div>
+    <div class="form">
+      <mat-label class="mat-subheader">Ajouter une nouvelle compétence</mat-label>
+
+      <mat-form-field>
+        <mat-select [formControl]="selectedCategorieCtr" (selectionChange)="changeSkill()">
+          <mat-option *ngFor="let category of categories" [value]="category.id_categorie">
+            {{category.categorie}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nouvelle compétence</mat-label>
+        <input matInput type="text" placeholder="compétence" [(ngModel)]="skill"/>
+      </mat-form-field>
+
+
+      <button mat-button color="primary" (click)="addSkill()">Ajouter</button>
+    </div>
+
+  </mat-card-content>
+</mat-card>

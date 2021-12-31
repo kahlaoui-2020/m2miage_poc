@@ -1,0 +1,33 @@
+.container {
+  width: 700px;
+  margin: 30px 30px 30px 30px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-list {
+  background-color: white;
+  max-width: 300px;
+  min-height: 340px;
+  border: 1px solid rgba(0,0,0,.12);
+  overflow-y: scroll;
+
+}
+.form {
+  display: flex;
+  flex-direction: column;
+
+}
+.mat-subheader {
+  font-size: 18px !important;
+  font-weight: 550 !important;
+  color: rgba(50, 50, 50,.5) !important;
+
+}
