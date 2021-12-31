@@ -41,6 +41,7 @@ import { EditSkillComponent } from './edit-db-state/edit-skill/edit-skill.compon
 import { EditCertificationComponent } from './edit-db-state/edit-certification/edit-certification.component';
 import { ProfileResumeComponent } from './profile-resume/profile-resume.component';
 import {NgChartsModule} from "ng2-charts";
+import { FindEmployeeComponent } from './find-employee/find-employee.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {NgChartsModule} from "ng2-charts";
     EditCategoriesComponent,
     EditSkillComponent,
     EditCertificationComponent,
-    ProfileResumeComponent
+    ProfileResumeComponent,
+    FindEmployeeComponent
   ],
     imports: [
         BrowserModule,

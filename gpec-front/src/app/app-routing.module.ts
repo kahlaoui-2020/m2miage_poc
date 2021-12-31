@@ -7,6 +7,7 @@ import {AppComponent} from "./app.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {EditDbStateComponent} from "./edit-db-state/edit-db-state.component";
 import {HomeComponent} from "./home/home.component";
+import {FindEmployeeComponent} from "./find-employee/find-employee.component";
 
 const routes: Routes = [
 
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent,
     children: [
       {path: '', component: DashboardComponent},
-      {path: 'edit-db', component: EditDbStateComponent}
+      {path: 'edit-db', component: EditDbStateComponent},
+      {path: 'find-employee', component: FindEmployeeComponent}
+
     ] ,canActivate:[RouteGuard]},
 ];
 
