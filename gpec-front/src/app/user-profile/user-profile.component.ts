@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
@@ -9,8 +9,11 @@ import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 })
 export class UserProfileComponent implements OnInit {
 
+
+  @Input() profil!: string;
   user!: User;
   imageurl!: SafeUrl;
+  imageDefault = 'assets/images/profil.png';
 
   constructor(private userService: UserService, private domSanitizer: DomSanitizer) {
 
@@ -19,7 +22,10 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.user.subscribe((user) => {
       this.user = user
-      this.base64ToImage(user.url_photo.data)
+      console.log(user)
+      if(user.url_photo.data.length) {
+        this.base64ToImage(user.url_photo.data)
+      }
 
     })
 
@@ -33,6 +39,5 @@ export class UserProfileComponent implements OnInit {
     }, '');
     let base64String = btoa(STRING_CHAR);
     this.imageurl = this.domSanitizer.bypassSecurityTrustUrl('data:image/png;base64,' + base64String)
-
   }
 }

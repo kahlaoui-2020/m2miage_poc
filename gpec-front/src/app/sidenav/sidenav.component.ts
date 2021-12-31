@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {UserService} from "../services/user.service";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-sidenav',
@@ -11,19 +12,22 @@ import {UserService} from "../services/user.service";
 })
 export class SidenavComponent implements  OnInit{
 
+  profil!: string;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,private userService: UserService) {
+  constructor(private breakpointObserver: BreakpointObserver,
+              private userService: UserService,
+              private auth: AuthService) {
 
 
   }
 
   ngOnInit(): void {
-
+    this.profil = this.auth.Profil != null ? this.auth.Profil : 'user'
   }
 
 }

@@ -1,6 +1,6 @@
-<app-user-profile></app-user-profile>
+<app-user-profile [profil]="profil" ></app-user-profile>
 <mat-tab-group>
-  <mat-tab label="Information Générale"></mat-tab>
+  <mat-tab label="Information Générale"><app-profile-resume></app-profile-resume></mat-tab>
   <mat-tab label="Compétences"><app-list-skills></app-list-skills></mat-tab>
   <mat-tab label="Certifications"><app-list-certifications></app-list-certifications></mat-tab>
   <mat-tab label="Projets">Projets</mat-tab>
