@@ -26,7 +26,6 @@ export class ListSkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.userSkills.subscribe((data) => {
-      console.log(data)
       if (!data.hasOwnProperty('error')) {
         this.skills = data;
       } else {

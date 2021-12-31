@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   submit(): void {
     this.authService.checkAuth(this.form.value).subscribe((result) => {
-      console.log(result)
       if(result) {
 
         this.authService.Logged = true;

@@ -15,18 +15,17 @@ export class ProfileResumeComponent implements OnInit {
     responsive: true,
   };
 
-  radarChartLabel: string[] = ['1', '2', '3', '4', '5'];
+  radarChartLabel: string[] = [];
+  dataSet: number[] = [];
   radarChartData: ChartData<'radar'> = {
     labels: this.radarChartLabel,
     datasets: [{
       label: '',
-      data: [100, 30, 50, 15, 92],
+      data: [],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 206, 86, 0.2)'
       ]
     }]
   }
@@ -36,8 +35,38 @@ export class ProfileResumeComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+
+    let myChart;
     this.userService.userGraph.subscribe((result: any) => {
-      console.log(result)
+      this.radarChartLabel = result.data.map((item: any) => item.categorie);
+      this.dataSet = result.data.map((item: any) => item.sum_value );
+      this.radarChartData.datasets[0].data = this.dataSet;
+      myChart = new Chart('myChart', {
+        type: 'pie',
+        data: {
+          labels: this.radarChartLabel,
+          datasets: [{
+            label: '',
+            data: this.dataSet,
+
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'bottom',
+              align: 'start'
+            }
+          },
+          scales: {
+            xAxes: {
+              ticks: {
+                mirror: true
+              }
+            },
+          }
+        }
+      })
     })
 
   }
