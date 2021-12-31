@@ -40,7 +40,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { EditSkillComponent } from './edit-db-state/edit-skill/edit-skill.component';
 import { EditCertificationComponent } from './edit-db-state/edit-certification/edit-certification.component';
 import { ProfileResumeComponent } from './profile-resume/profile-resume.component';
-
+import {NgChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -68,6 +68,8 @@ import { ProfileResumeComponent } from './profile-resume/profile-resume.componen
         BrowserAnimationsModule,
         MatCardModule,
         HttpClientModule,
+
+        NgChartsModule,
 
         ReactiveFormsModule,
         MatFormFieldModule,
