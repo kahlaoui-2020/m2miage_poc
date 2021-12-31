@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {EditSkillsService} from "../services/edit-skills.service";
-import {AuthService} from "../services/auth.service";
-import {UserService} from "../services/user.service";
+import {EditSkillsService} from "../../services/edit-skills.service";
+import {AuthService} from "../../services/auth.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-update-skills',

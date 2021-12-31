@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
-import {DialogSkillsComponent} from "../dialog-skills/dialog-skills.component";
+import {AddSkillsComponent} from "../dialog/add-skills/add-skills.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SelectionModel} from "@angular/cdk/collections";
 import {AuthService} from "../services/auth.service";
-import {UpdateSkillsComponent} from "../update-skills/update-skills.component";
+import {UpdateSkillsComponent} from "../dialog/update-skills/update-skills.component";
 
 @Component({
   selector: 'app-list-skills',
@@ -26,17 +26,19 @@ export class ListSkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.userSkills.subscribe((data) => {
-      this.skills = data;
       console.log(data)
+      if (!data.hasOwnProperty('error')) {
+        this.skills = data;
+      } else {
+        this.skills = [];
+      }
+
     })
   }
 
-  check() {
-
-  }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogSkillsComponent);
+    const dialogRef = this.dialog.open(AddSkillsComponent);
     dialogRef.afterClosed().subscribe(result => {
       if(result === undefined) {
 
