@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {EditSkillsService} from "../services/edit-skills.service";
+import {EditSkillsService} from "../../services/edit-skills.service";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {MatListOption} from "@angular/material/list";
-import {UserService} from "../services/user.service";
-import {AuthService} from "../services/auth.service";
+import {UserService} from "../../services/user.service";
+import {AuthService} from "../../services/auth.service";
 import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-dialog-skills',
-  templateUrl: './dialog-skills.component.html',
-  styleUrls: ['./dialog-skills.component.css']
+  selector: 'app-add-skills',
+  templateUrl: './add-skills.component.html',
+  styleUrls: ['./add-skills.component.css']
 })
-export class DialogSkillsComponent implements OnInit {
+export class AddSkillsComponent implements OnInit {
 
   categories: any[] = [];
   skills: any[] = [];
@@ -28,7 +27,7 @@ export class DialogSkillsComponent implements OnInit {
 
 
 
-  constructor(private dialogRef: MatDialogRef<DialogSkillsComponent>,
+  constructor(private dialogRef: MatDialogRef<AddSkillsComponent>,
               private editSkillsService: EditSkillsService,
               private userService: UserService,
               private authService: AuthService,
