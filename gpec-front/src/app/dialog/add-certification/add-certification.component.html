@@ -1,0 +1,45 @@
+<mat-stepper>
+
+  <!--  Step 2: Pick skills-->
+  <mat-step>
+    <mat-selection-list #listCert (selectionChange)="selectCert($event.options)" [multiple]="false">
+      <mat-list-option *ngFor="let cert of certifications" [value]="cert">
+        {{cert.titule}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <div>
+      <button mat-button matDialogClose>Annuler</button>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+
+  <mat-step *ngIf="selectedCert">
+    <mat-label>{{selectedCert.titule}}</mat-label>
+    <mat-label>{{selectedCert.organisme}}</mat-label>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <mat-form-field>
+        <mat-label>Code / N°</mat-label>
+        <input matInput type="text" formControlName="mat_certification"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Score / Niveau</mat-label>
+        <input matInput type="text" formControlName="score"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Date de délivrance</mat-label>
+        <input matInput type="date" formControlName="date_d"/>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Fin de validité</mat-label>
+        <input matInput type="date" formControlName="date_f"/>
+      </mat-form-field>
+  <button mat-button type="submit">Ajouter</button>
+    </form>
+  </mat-step>
+
+</mat-stepper>
+
