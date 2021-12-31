@@ -1,4 +1,10 @@
 
 <div>
-  <canvas id="myChart"></canvas>
+  <canvas id="myChart"
+          baseChart
+          [data]="radarChartData"
+          [options]="radarChartOptions"
+          [type]="radarChartType"
+        >
+  </canvas>
 </div>
