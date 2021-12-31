@@ -46,3 +46,11 @@ exports.putSkills = (req, res) => {
         else res.send({error: false, message: {}});
     });
 }
+
+exports.getGraph = (req, res) => {
+    let id = req.query.id_utilisateur;
+    userSkills.getStat(id, (err, data) => {
+        if (err) res.send({ error: true, message: `Can't get resume` });
+        else res.send({error: false, data ,message: {}});
+    });
+}

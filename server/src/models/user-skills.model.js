@@ -131,4 +131,25 @@ UserSkills.updateSkills = (data, result) => {
     })
 }
 
+
+UserSkills.getStat = (id, result) => {
+
+
+    let request = `SELECT cu.id_categorie, categorie, SUM(val_niveau) AS sum_value
+    FROM competences_utilisateur cu JOIN categories c ON cu.id_categorie = c.id_categorie
+    WHERE cu.id_utilisateur = ${id}
+    GROUP BY id_categorie`
+
+    sql.query(request, (err, res) => {
+        if(err) {
+            console.log(err)
+            result(err, null);
+            return;
+        }else  {
+            result(null, res);
+            return;
+        }
+    })
+}
+
 module.exports = UserSkills;
