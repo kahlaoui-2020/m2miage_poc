@@ -42,6 +42,7 @@ import { EditCertificationComponent } from './edit-db-state/edit-certification/e
 import { ProfileResumeComponent } from './profile-resume/profile-resume.component';
 import {NgChartsModule} from "ng2-charts";
 import { FindEmployeeComponent } from './find-employee/find-employee.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { FindEmployeeComponent } from './find-employee/find-employee.component';
         MatSelectModule,
         FormsModule,
         MatSnackBarModule,
-        MatGridListModule
+        MatGridListModule,
+        MatChipsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

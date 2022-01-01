@@ -2,8 +2,8 @@
 
   <!--  Step 1: Pick category-->
   <mat-step>
-    <mat-form-field>
 
+    <mat-form-field>
       <mat-select [formControl]="selectedCategorieCtr">
         <mat-option *ngFor="let category of categories" [value]="category.id_categorie">
           {{category.categorie}}
