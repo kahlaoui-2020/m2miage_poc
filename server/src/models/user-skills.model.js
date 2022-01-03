@@ -1,3 +1,4 @@
+const { copyFileSync } = require('graceful-fs');
 const sql = require('../database/db.connect');
 const { id_categorie } = require('./edit-skills.model');
 
@@ -151,5 +152,8 @@ UserSkills.getStat = (id, result) => {
         }
     })
 }
+
+
+
 
 module.exports = UserSkills;
