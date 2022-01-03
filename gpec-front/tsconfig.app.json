@@ -8,7 +8,9 @@
   "files": [
     "src/main.ts",
     "src/polyfills.ts",
-    "src/app/models/user.model.ts"
+    "src/app/models/user.model.ts",
+    "src/app/models/employee.model.ts",
+    "src/app/models/skill-user.model.ts"
   ],
   "include": [
     "src/**/*.d.ts"
