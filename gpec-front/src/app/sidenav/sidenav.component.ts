@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {UserService} from "../services/user.service";
 import {AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sidenav',
@@ -21,7 +22,8 @@ export class SidenavComponent implements  OnInit{
 
   constructor(private breakpointObserver: BreakpointObserver,
               private userService: UserService,
-              private auth: AuthService) {
+              private auth: AuthService,
+              private route: Router) {
 
 
   }
@@ -30,4 +32,9 @@ export class SidenavComponent implements  OnInit{
     this.profil = this.auth.Profil != null ? this.auth.Profil : 'user'
   }
 
+  logout() {
+    this.auth.isAuth = false
+    this.route.navigateByUrl('login')
+
+  }
 }
