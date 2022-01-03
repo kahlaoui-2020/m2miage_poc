@@ -1,0 +1,113 @@
+.container {
+  /* width: 100%; */
+  height: 100% !important;
+  margin: 30px 30px 30px 30px;
+  height: 500px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.content {
+  flex: 1 0 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.content-card {
+  /* flex: 1 0 50%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.content-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.content-body {
+  display: flex;
+  flex-direction: column;
+  /*width: 300px;*/
+
+}
+.div-card {
+  margin: 0 4px 0 4px;
+}
+span {
+  margin: 15px 0 15px 0;
+}
+mat-selection-list {
+  background-color: white;
+  max-width: 300px;
+  max-height: 300px;
+  border: 1px solid rgba(0,0,0,.12);
+  overflow-y: scroll;
+
+}
+.item_card {
+  margin: 0 !important;
+}
+div.item_card > .mat-card {
+  padding: 0 !important;
+  margin: 8px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+.grid {
+  width: 100%;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.list_card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+}
+
+.flex_card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+.item_card {
+  width: 100%;
+}
+
+.flex_card > div {
+  flex: 50%;
+  margin: 4px;
+}
+
+
+.list-card {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.mat-subheader {
+  font-size: 18px !important;
+  font-weight: 550 !important;
+  color: rgba(50, 50, 50,.5) !important;
+
+}
+
+
+.example-box.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-chip .cdk-drop-list-dragging {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

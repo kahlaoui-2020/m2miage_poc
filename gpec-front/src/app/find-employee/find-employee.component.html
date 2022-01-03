@@ -1,1 +1,104 @@
-<p>find-employee works!</p>
+<div class="container">
+  <div class="content">
+    <div class="content-body">
+      <div>
+        <h3>Chercher par competence</h3>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select [formControl]="selectedCatCtr" (selectionChange)="changeSkill()">
+            <mat-option *ngFor="let category of categories" [value]="category.id_categorie">
+              {{category.categorie}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+      <div class="list">
+        <span  class="mat-subheader">Liste des compétences</span>
+        <mat-selection-list [formControl]="selectedSkillsCtr">
+          <mat-list-option *ngFor="let item of skills" [value]="item">
+            {{item.competence}}
+            <mat-divider></mat-divider>
+          </mat-list-option>
+
+        </mat-selection-list>
+      </div>
+
+      <div>
+        <button mat-button (click)="add()">selectionner</button>
+        <button mat-button (click)="reset()">re-commencer</button>
+      </div>
+    </div>
+    <mat-divider [vertical]="true">
+
+    </mat-divider>
+    <div class="content-body">
+      <span  class="mat-subheader">Liste des compétences</span>
+      <mat-chip-list
+        class="example-chip"
+        cdkDropList
+        cdkDropListOrientation="horizontal">
+        <mat-chip
+          class="example-box"
+          cdkDrag
+          *ngFor="let choice of choices">
+          {{choice.competence}}
+        </mat-chip>
+      </mat-chip-list>
+      <span [ngStyle]="{'display' : choices.length != 0 ? 'block' : 'none'}">
+         <button mat-raised-button (click)="search()">Lancer recherche</button>
+      </span>
+
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true">
+
+  </mat-divider>
+
+  <div class="content">
+
+    <div class="content-body">
+      <div>
+        <h3 style="text-align: center">Les profils correspondants</h3>
+      </div>
+      <div  class="flex_card">
+        <div  class="item_card" *ngFor="let employee of employees">
+          <mat-card>
+            <img [src]="employee.photo != null ? employee.photo : imageDefault">
+            <mat-card-subtitle>
+              {{employee.nom}}
+              {{employee.prenom}}
+              {{employee.profil}}
+            </mat-card-subtitle>
+            <mat-card-content>
+              <p *ngFor="let skill of employee.skills">
+                {{skill.competence}} Niveau: {{skill.niveau}}, {{skill.nb_experience}} années d'expérience
+              </p>
+              <mat-divider></mat-divider>
+              <p *ngFor="let cert of employee.certifications">
+                {{cert.titule}} <br> Score: {{cert.score}}, validite: du {{cert.date_d}} à {{cert.date_f}}
+              </p>
+
+
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+
+            </mat-card-actions>
+
+          </mat-card>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+</div>
