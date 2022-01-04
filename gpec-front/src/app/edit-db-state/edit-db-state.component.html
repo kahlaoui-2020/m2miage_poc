@@ -1,9 +1,20 @@
 <div class="container">
   <mat-tab-group class="content" selectedIndex="0" (selectedTabChange)="changeTab($event)">
     <mat-tab  label="Ajouter Catégories">
-      <app-edit-categories></app-edit-categories>
+      <app-edit-categories *ngIf="tabIndex === 0"></app-edit-categories>
     </mat-tab>
-    <mat-tab label="Ajouter Compétences"><app-edit-skill *ngIf="tabIndex === 1"></app-edit-skill></mat-tab>
-    <mat-tab label="Ajouter Certifications"><app-edit-certification *ngIf="tabIndex === 2"></app-edit-certification></mat-tab>
+
+    <mat-tab label="Ajouter Compétences">
+      <app-edit-skill *ngIf="tabIndex === 1"></app-edit-skill>
+    </mat-tab>
+
+    <mat-tab label="Ajouter Certifications">
+      <app-edit-certification *ngIf="tabIndex === 2"></app-edit-certification>
+    </mat-tab>
+
+    <mat-tab label="Demande des collaborateurs">
+      <app-edit-request *ngIf="tabIndex === 3"></app-edit-request>
+    </mat-tab>
+
   </mat-tab-group>
 </div>

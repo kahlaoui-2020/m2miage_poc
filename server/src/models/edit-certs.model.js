@@ -1,3 +1,4 @@
+const { request } = require('express');
 const sql = require('../database/db.connect')
 
 
@@ -76,6 +77,25 @@ EditCert.delete_UserCerts = (id, data, result) => {
             result(err, null);
             return;
         }else {
+            result(null, res);
+            return;
+        }
+    })
+}
+
+EditCert.getTreeCerts = (result) => {
+    let request = `select distinct(organisme),`
+                        +`json_array(`
+                        +`(select group_concat(titule)`
+                        +`from certifications ci where ci.organisme = c.organisme)`
+                        +`) AS certifications `
+                        +`from certifications c`
+    sql.query(request, (err, res) => {
+        if(err) {
+            console.log(err)
+            result(err, null);
+            return;
+        }else {                        
             result(null, res);
             return;
         }

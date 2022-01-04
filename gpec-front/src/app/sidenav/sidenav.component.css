@@ -8,7 +8,7 @@
 }
 
 .sidenav {
-  width: 250px;
+  width: 300px;
 }
 
 .sidenav .mat-toolbar {
@@ -23,4 +23,12 @@
 
 .example-space {
   flex: 1 1 auto;
+}
+.div-toolbar {
+  position: sticky;
+  top: 0;
+}
+
+a {
+  max-width: 250px;
 }

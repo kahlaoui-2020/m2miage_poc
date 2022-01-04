@@ -8,6 +8,7 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
 import {EditDbStateComponent} from "./edit-db-state/edit-db-state.component";
 import {HomeComponent} from "./home/home.component";
 import {FindEmployeeComponent} from "./find-employee/find-employee.component";
+import {PassRequestComponent} from "./pass-request/pass-request.component";
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent,
     children: [
       {path: '', component: DashboardComponent},
+      {path: 'pass-request', component: PassRequestComponent},
       {path: 'edit-db', component: EditDbStateComponent},
       {path: 'find-employee', component: FindEmployeeComponent}
 

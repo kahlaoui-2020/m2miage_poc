@@ -3,7 +3,7 @@
     <div class="list">
       <div class="sub-list">
         <mat-form-field appearance="legacy">
-          <mat-label>Organisme</mat-label>
+          <mat-label>Certificateur</mat-label>
           <mat-select [(value)]="selectedOrg" (selectionChange)="getCerts()">
             <mat-option *ngFor="let item of organismes" [value]="item.organisme">
               {{item.organisme}}
@@ -14,11 +14,10 @@
       </div>
 
 
-      <span  class="mat-subheader">Liste des compétences</span>
+      <span  class="mat-subheader">Liste des certifications</span>
       <mat-list>
         <mat-list-item *ngFor="let item of certifications">
-            {{item.titule}}
-          <mat-divider></mat-divider>
+          <p>{{item.titule}}</p>
         </mat-list-item>
       </mat-list>
     </div>
@@ -34,7 +33,7 @@
         </p>
         <p>
           <mat-form-field>
-            <mat-label>Organisme</mat-label>
+            <mat-label>Certificateur</mat-label>
             <input matInput type="text" placeholder="Microsoft, Oracle, Cisco, ..." formControlName="organisme"/>
           </mat-form-field>
         </p>

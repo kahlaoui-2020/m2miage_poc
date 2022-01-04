@@ -43,6 +43,11 @@ import { ProfileResumeComponent } from './profile-resume/profile-resume.componen
 import {NgChartsModule} from "ng2-charts";
 import { FindEmployeeComponent } from './find-employee/find-employee.component';
 import {MatChipsModule} from "@angular/material/chips";
+import {MatTreeModule} from "@angular/material/tree";
+import { PassRequestComponent } from './pass-request/pass-request.component';
+import { GetRequestComponent } from './get-request/get-request.component';
+import { EditRequestComponent } from './edit-db-state/edit-request/edit-request.component';
+import {MatBadgeModule} from "@angular/material/badge";
 
 @NgModule({
   declarations: [
@@ -63,38 +68,43 @@ import {MatChipsModule} from "@angular/material/chips";
     EditSkillComponent,
     EditCertificationComponent,
     ProfileResumeComponent,
-    FindEmployeeComponent
+    FindEmployeeComponent,
+    PassRequestComponent,
+    GetRequestComponent,
+    EditRequestComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        HttpClientModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    HttpClientModule,
 
-        NgChartsModule,
+    NgChartsModule,
 
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        LayoutModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatListModule,
-        MatTabsModule,
-        MatButtonToggleModule,
-        MatTableModule,
-        MatCheckboxModule,
-        MatDialogModule,
-        MatStepperModule,
-        MatSelectModule,
-        FormsModule,
-        MatSnackBarModule,
-        MatGridListModule,
-        MatChipsModule
-    ],
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatSelectModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatGridListModule,
+    MatChipsModule,
+    MatTreeModule,
+    MatBadgeModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

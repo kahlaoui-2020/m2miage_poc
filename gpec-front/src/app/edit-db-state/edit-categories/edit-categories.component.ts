@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {EditSkillsService} from "../../services/edit-skills.service";
-import {FormControl} from "@angular/forms";
 import {EditDbService} from "../../services/edit-db.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 

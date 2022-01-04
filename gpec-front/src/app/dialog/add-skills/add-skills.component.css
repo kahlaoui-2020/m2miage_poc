@@ -1,3 +1,13 @@
 mat-form-field {
   margin-right: 15px;
 }
+
+mat-selection-list  {
+  max-height: 280px;
+  border: 1px solid rgba(0,0,0,.12);
+  overflow-y: scroll;
+  padding: 0;
+}
+mat-list-option {
+  border-bottom: black 1px solid;
+}

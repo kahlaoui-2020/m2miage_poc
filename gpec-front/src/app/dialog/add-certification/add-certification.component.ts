@@ -1,8 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
 import {AddSkillsComponent} from "../add-skills/add-skills.component";
 import {EditCertificationService} from "../../services/edit-certification.service";
 import {FormControl, FormGroup} from "@angular/forms";
+
+
+
+
+class Tree {
+  organisme!: string;
+  certs: string[] = [];
+
+  constructor(org: any) {
+    this.organisme = org
+  }
+
+}
 
 @Component({
   selector: 'app-add-certification',
@@ -21,16 +34,37 @@ export class AddCertificationComponent implements OnInit {
 
   });
 
-  constructor(private dialogRef: MatDialogRef<AddSkillsComponent>,
-              private editCert: EditCertificationService) { }
 
+  certs: Tree[] = [];
+
+
+
+
+  constructor(private dialogRef: MatDialogRef<AddSkillsComponent>,
+              private editCert: EditCertificationService) {
+  }
+  hasChild = (_: number, node: Tree) => node.certs.length > 0;
   ngOnInit(): void {
     this.editCert.Certifications.subscribe((result: any) => {
-      console.log(result)
       this.certifications = result.data
     })
 
+
+    this.editCert.CertsTree.subscribe((result: any) => {
+      for (let res of result.data) {
+        let tree = new Tree(res.organisme);
+        let certs = JSON.parse(res.certifications)[0].split(',')
+        tree.certs = certs;
+        this.certs.push(tree)
+      }
+
+
+    })
+
+
   }
+
+
 
 
   selectCert(e: any) {

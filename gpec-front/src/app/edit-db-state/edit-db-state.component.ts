@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {EditCertificationService} from "../services/edit-certification.service";
 import {EditSkillsService} from "../services/edit-skills.service";
 import {MatTabChangeEvent} from "@angular/material/tabs";
+import {EditDbService} from "../services/edit-db.service";
 
 @Component({
   selector: 'app-edit-db-state',
@@ -15,7 +16,8 @@ export class EditDbStateComponent implements OnInit{
   certifications!: any[];
   tabIndex = 0;
   constructor(private editCertService: EditCertificationService,
-              private editSkillsService: EditSkillsService) { }
+              private editSkillsService: EditSkillsService,
+              private  editDBService: EditDbService) { }
 
   ngOnInit(): void {
 
@@ -25,6 +27,7 @@ export class EditDbStateComponent implements OnInit{
     this.editCertService.Certifications.subscribe((data: any) => {
       this.certifications = data.data;
     })
+
 
   }
 

@@ -19,6 +19,10 @@ export class EditCertificationService {
     return this.http.get(environment.apiURL + certification_url);
   }
 
+  get CertsTree() {
+    return this.http.get(environment.apiURL + certification_url + 'tree');
+  }
+
   getCertifications(organisme: any) {
     return this.http.get(environment.apiURL + certification_url + 'certifications/'+organisme, {params: organisme});
   }

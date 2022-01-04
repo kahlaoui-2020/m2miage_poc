@@ -113,9 +113,9 @@ export class FindEmployeeComponent implements OnInit {
       res = result.data
       console.log(res[0].profil)
       for(let res of result.data) {
-        console.log(res.profil[136])
         employee =  new Employee(JSON.parse(res.profil));
         console.log(employee)
+        console.log(res.skills)
         for(let s of res.skills.split(";")) {
           let skill = new Skill(JSON.parse(s))
           employee.skills.push(skill)

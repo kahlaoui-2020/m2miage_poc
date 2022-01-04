@@ -55,3 +55,11 @@ exports.deleteUserCerts = (req, res) => {
         } else res.send({error: false, data: data, message: '' })
     })
 }
+
+exports.getTreeCerts = (req, res) => {
+    editCert.getTreeCerts((err, data) => {
+        if (err) {
+            res.send({error: true, message: `No certifications was found` });
+        } else res.send({error: false, data: data, message: '' })
+    })
+}

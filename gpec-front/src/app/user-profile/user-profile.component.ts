@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.user.subscribe((user) => {
       this.user = user
-
+      console.log(user)
 
     })
 

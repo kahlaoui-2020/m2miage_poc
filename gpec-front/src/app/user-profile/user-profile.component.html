@@ -1,6 +1,16 @@
 <mat-card>
   <img  mat-card-image [src]="imageurl != null ? imageurl : imageDefault">
-  <mat-card-subtitle>{{user?.nom}} {{user?.prenom}}</mat-card-subtitle>
-  <mat-card-content>
-  </mat-card-content>
+  <div style="display: flex; flex-direction: column">
+    <mat-card-title>
+      {{user?.nom}} {{user?.prenom}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{user?.profil}}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>Email: {{user?.email}}</p>
+      <p>N°tel: {{user?.num_tel}}</p>
+    </mat-card-content>
+  </div>
+
 </mat-card>

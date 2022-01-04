@@ -1,18 +1,45 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item  [routerLink]="['/home']">Profil Utilisateur</a>
-      <a mat-list-item *ngIf="profil === 'admin'"
-         [routerLink]="['/home/edit-db']">Ajouter Des nouveaux Competences/Certifications</a>
-      <a mat-list-item *ngIf="profil === 'admin'" [routerLink]="['/home/find-employee']">Chercher un collaborateur</a>
+
+      <span>
+        <a mat-list-item [routerLink]="['/home']">
+        <mat-icon matListIcon>home</mat-icon>
+        <p mat-line>Profil Utilisateur</p>
+        </a>
+      </span>
+
+      <span>
+         <a mat-list-item *ngIf="profil === 'admin'"
+            [routerLink]="['/home/edit-db']" [matBadge]="notif" [matBadgeHidden]="notif != 0 ? false: true"
+            matBadgeColor="warn" matBadgeSize="small">
+           <mat-icon matListIcon>add_cercle</mat-icon>
+          <p mat-line>Competences/ Certifications</p>
+         </a>
+
+      </span>
+
+      <span>
+     <a mat-list-item *ngIf="profil != 'admin'"
+        [routerLink]="['/home/pass-request']">
+       <mat-icon matListIcon>send</mat-icon>
+        <p mat-line>Contacter RH</p></a>
+      </span>
+      <span>
+      <a mat-list-item *ngIf="profil === 'admin'" [routerLink]="['/home/find-employee']">
+        <mat-icon matListIcon>search</mat-icon>
+        <p mat-line>Chercher collaborateur</p></a>
+</span>
+
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-container">
-    <div>
+    <div class="div-toolbar">
       <mat-toolbar color="primary">
         <button
           type="button"
@@ -24,7 +51,9 @@
         </button>
         <span>gpec-front</span>
         <span class="example-space"></span>
-        <button mat-icon-button (click)="logout()"><mat-icon>logout</mat-icon></button>
+        <button mat-icon-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
       </mat-toolbar>
     </div>
 

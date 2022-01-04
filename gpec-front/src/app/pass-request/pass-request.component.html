@@ -1,0 +1,12 @@
+<p>Demander l'ajout d'une nouvelle compétence </p>
+<mat-form-field>
+  <mat-label>Compétence </mat-label>
+  <input  matInput type="text" placeholder="Compétence" [formControl]="skill">
+</mat-form-field>
+<button mat-button (click)="passSkill()">Envoyer demande</button>
+<p>Demander l'ajout d'une nouvelle certification </p>
+<mat-form-field>
+  <mat-label>Certification </mat-label>
+  <input  matInput type="text" placeholder="Certification" [formControl]="cert">
+</mat-form-field>
+<button mat-button (click)="passCert()">Envoyer demande</button>

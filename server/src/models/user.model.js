@@ -65,4 +65,76 @@ User.findBySkills = (id_user, id, result) => {
 }
 
 
+User.sendSkillRequest = (id_user, skill, result) => {
+    let request = `INSERT INTO users_requests(id_utilisateur, knowledge, type) values(${id_user}, '${skill}', 'competence') `;
+    sql.query(request, (err, res) => {
+        if(err) {
+            console.log(err)
+            result(err, null);
+            return;
+        }else  {
+            console.log(res)
+            result(null, res);
+            return;
+        }
+    })
+}
+
+User.sendCertRequest = (id_user, cert, result) => {
+    let request = `INSERT INTO users_requests(id_utilisateur, knowledge, type) values(${id_user}, '${cert}', 'certification') `;
+    sql.query(request, (err, res) => {
+        if(err) {
+            result(err, null);
+            return;
+        }else  {
+            console.log(res)
+            result(null, res);
+            return;
+        }
+    })
+}
+
+
+
+User.deleteRequest = (id_request, result) => {
+    let request = `DELETE FROM users_requests WHERE id_request = ${id_request}`;
+    sql.query(request, (err, res) => {
+        if(err) {
+            console.log(err)
+            result(err, null);
+            return;
+        }else  {
+            result(null, res);
+            return;
+        }
+    })
+}
+
+
+User.getRequest = (result) => {
+    let request = `SELECT ur.* , u.nom, u.prenom FROM users_requests ur JOIN utilisateurs u ON ur.id_utilisateur = u.id_utilisateur`;
+    sql.query(request, (err, res) => {
+        if(err) {
+            result(err, null);
+            return;
+        }else  {
+            result(null, res);
+            return;
+        }
+    })
+}
+User.isNotifs = (result) => {
+    let request = `select count(id_request) as notif from users_requests`
+    sql.query(request, (err, res) => {
+        if(err) {
+            result(err, null);
+            return;
+        }else  {
+            result(null, res);
+            return;
+        }
+    })
+
+}
+
 module.exports = User;

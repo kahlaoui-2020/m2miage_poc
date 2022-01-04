@@ -47,4 +47,66 @@ function ParseRespnse(responses) {
     }
     console.log(object)
 
+
+
+
+
+
+
+
+
+
+
+}
+
+exports.requestSkill = (req, res) => {
+
+    User.sendSkillRequest(req.body.id_utilisateur, req.body.skill, (err, data) => {
+        if(err) {
+            res.send({ error: true, message: `Error sending message`});
+
+        } else {
+            res.send({error: false, data ,message: {}});}
+    });
+}
+
+exports.requestCert = (req, res) => {
+    User.sendCertRequest(req.body.id_utilisateur, req.body.cert, (err, data) => {
+        if(err) {
+            res.send({ error: true, message: `Error sending message`});
+
+        } else {
+            res.send({error: false, data ,message: {}});}
+    });
+}
+
+exports.removeRequest = (req, res) => {
+    User.deleteRequest(req.params.id_request, (err, data) => {
+        if(err) {
+            res.send({ error: true, message: `Error deleting request`});
+
+        } else {
+            res.send({error: false});}
+    });
+}
+
+exports.getRequest = (req, res) => {
+    User.getRequest((err, data) => {
+        if(err) {
+            res.send({ error: true, message: `Error deleting request`});
+
+        } else {
+            res.send({error: false, data: data});}
+    });
+}
+
+exports.getNotifs = (req, res) => {
+    User.isNotifs((err, data) => {
+        if(err) {
+            res.send({ error: true, message: `Error deleting request`});
+
+        } else {
+            res.send(data)
+        }
+    });
 }

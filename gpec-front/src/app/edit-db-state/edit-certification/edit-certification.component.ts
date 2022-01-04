@@ -4,7 +4,6 @@ import {EditSkillsService} from "../../services/edit-skills.service";
 import {EditDbService} from "../../services/edit-db.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {EditCertificationService} from "../../services/edit-certification.service";
-import {removeSummaryDuplicates} from "@angular/compiler";
 
 @Component({
   selector: 'app-edit-certification',

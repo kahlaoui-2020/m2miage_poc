@@ -1,0 +1,20 @@
+<mat-card class="container">
+  <mat-card-content>
+          <mat-list *ngIf="requests.length != 0">
+            <mat-list-item class="card" *ngFor="let item of requests; let index = index">
+              <p mat-line>
+                {{item.knowledge}}
+              </p>
+              <p mat-line>Demander par : {{item.nom}} {{item.prenom}} </p>
+              <button mat-icon-button (click)="removeRequest(item.id_request, index)">
+                <mat-icon matListIcon>delete</mat-icon>
+              </button>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+          </mat-list>
+
+        <h4 *ngIf="requests.length === 0">Vous n'avez aucune notification</h4>
+
+  </mat-card-content>
+</mat-card>
