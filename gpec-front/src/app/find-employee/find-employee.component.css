@@ -81,6 +81,7 @@ img {
 .flex_card {
   height: 700px;
   max-height: 700px;
+  min-width: 550px;
   border: 1px solid rgba(0,0,0,.12);
   overflow-y: scroll;
   overflow-x: hidden;
@@ -91,6 +92,7 @@ img {
 .item_card {
   /*width: 100%;*/
   margin: 8px !important;
+  width: 250px;
 }
 
 .flex_card > div {

@@ -5,7 +5,8 @@
               <p mat-line>
                 {{item.knowledge}}
               </p>
-              <p mat-line>Demander par : {{item.nom}} {{item.prenom}} </p>
+              <p mat-line>Demander par: {{item.nom}} {{item.prenom}} </p>
+              <p mat-line>Type: {{item.type}} </p>
               <button mat-icon-button (click)="removeRequest(item.id_request, index)">
                 <mat-icon matListIcon>delete</mat-icon>
               </button>

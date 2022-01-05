@@ -24,6 +24,7 @@ export class EditRequestComponent implements OnInit {
       if(!result.error) {
         this.snackBar.open("La demande a été supprimée ",'', {duration: 3000});
         this.requests.splice(index, 1);
+        console.log(this.requests)
         this.editDBService.change(this.requests.length)
 
       }else {
